@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prince Kanani | Product & Project Management Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Prince Kanani — Assistant Product Manager at Honest IT building SaaS for Indian SMEs: real-time Tally visibility, asset management and ERP finance, shipped with AI-assisted development."
+    />
+    <meta name="author" content="Prince Kanani" />
+    <meta name="theme-color" content="#07090f" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Prince Kanani | Product & Project Management Portfolio" />
+    <meta
+      property="og:description"
+      content="Portfolio of Prince Kanani — Assistant Product Manager at Honest IT building SaaS for Indian SMEs: real-time Tally visibility, asset management and ERP finance, shipped with AI-assisted development."
+    />
+    <meta property="og:image" content="https://princekanani03.github.io/prince-portfolio/images/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="631" />
+    <meta property="og:url" content="https://princekanani03.github.io/prince-portfolio/" />
+    <meta property="og:site_name" content="Prince Kanani Portfolio" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Prince Kanani | Product & Project Management Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Portfolio of Prince Kanani — Assistant Product Manager building SaaS for Indian SMEs."
+    />
+    <meta name="twitter:image" content="https://princekanani03.github.io/prince-portfolio/images/og-image.png" />
+
+    <!-- Assumes the repo is named `prince-portfolio` under the PrinceKanani03
+         account. If the repo (or a custom domain) differs, update the
+         canonical + og:url + og:image/twitter:image URLs above to match. -->
+    <link rel="canonical" href="https://princekanani03.github.io/prince-portfolio/" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Prince Kanani",
+        "jobTitle": "Assistant Product Manager",
+        "worksFor": { "@type": "Organization", "name": "Honest IT" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ahmedabad",
+          "addressRegion": "Gujarat",
+          "addressCountry": "India"
+        },
+        "alumniOf": ["LJ University (MCA)", "RK University (BCA)"],
+        "knowsAbout": [
+          "Product Management",
+          "Project Management",
+          "Software Development",
+          "Business Analysis",
+          "ERP Integration"
+        ]
+      }
+    </script>
+
+    <script>
+      // Apply persisted theme before first paint to avoid a flash of the wrong theme.
+      try {
+        var t = localStorage.getItem('pk-theme')
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t)
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

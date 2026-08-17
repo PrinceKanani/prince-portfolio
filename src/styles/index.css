@@ -1,0 +1,273 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/space-grotesk';
+@import 'tailwindcss';
+
+/*
+ * Theme tokens. Dark is the default (set on <html data-theme="dark">).
+ * Light overrides live under [data-theme='light'].
+ */
+:root,
+[data-theme='dark'] {
+  --c-bg: #07090f;
+  --c-surface: #0c101c;
+  --c-elevated: #121729;
+  --c-ink: #e9edf6;
+  --c-muted: #97a1b7;
+  /* Must stay ≥4.5:1 (WCAG AA) on --c-elevated, the darkest surface it appears over. */
+  --c-faint: #7c87a0;
+  --c-line: rgba(151, 164, 197, 0.14);
+  --c-accent: #818cf8;
+  --c-accent-strong: #6366f1;
+  --c-cyan: #22d3ee;
+  --c-violet: #a78bfa;
+  --c-glass: rgba(16, 21, 38, 0.55);
+  --c-glass-strong: rgba(14, 18, 33, 0.82);
+  --glow-1: rgba(99, 102, 241, 0.16);
+  --glow-2: rgba(34, 211, 238, 0.1);
+  --shadow-card: 0 24px 60px -24px rgba(2, 4, 12, 0.7);
+}
+
+[data-theme='light'] {
+  --c-bg: #f5f6fb;
+  --c-surface: #ffffff;
+  --c-elevated: #ffffff;
+  --c-ink: #10131f;
+  --c-muted: #545d75;
+  /* Must stay ≥4.5:1 (WCAG AA) on --c-bg, the lightest surface it appears over. */
+  --c-faint: #636c86;
+  --c-line: rgba(22, 30, 58, 0.12);
+  --c-accent: #5a5ff0;
+  --c-accent-strong: #4f46e5;
+  /* Dark enough for 4.5:1 as 12px badge text on white/tinted surfaces. */
+  --c-cyan: #0f6b85;
+  --c-violet: #7c3aed;
+  --c-glass: rgba(255, 255, 255, 0.62);
+  --c-glass-strong: rgba(255, 255, 255, 0.88);
+  --glow-1: rgba(99, 102, 241, 0.12);
+  --glow-2: rgba(8, 145, 178, 0.08);
+  --shadow-card: 0 20px 50px -22px rgba(28, 34, 68, 0.24);
+}
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-elevated: var(--c-elevated);
+  --color-ink: var(--c-ink);
+  --color-muted: var(--c-muted);
+  --color-faint: var(--c-faint);
+  --color-line: var(--c-line);
+  --color-accent: var(--c-accent);
+  --color-accent-strong: var(--c-accent-strong);
+  --color-cyan: var(--c-cyan);
+  --color-violet: var(--c-violet);
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --shadow-card: var(--shadow-card);
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Themed scrollbars: the default light scrollbar is jarring on the dark
+     theme (page edge and inside the project modal alike). */
+  scrollbar-color: color-mix(in srgb, var(--c-muted) 45%, transparent) transparent;
+}
+
+/* WebKit fallback for browsers without scrollbar-color support. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  background-color: color-mix(in srgb, var(--c-muted) 45%, transparent);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, var(--c-muted) 70%, transparent);
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  /* `clip` (not `hidden`) — `hidden` turns body into a scroll container, which
+     breaks native anchor scrolling to #section ids in Chrome. */
+  overflow-x: clip;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--c-accent) 35%, transparent);
+}
+
+/* No border-radius here: this rule is unlayered so it would override every
+   rounded-* utility on focus; outlines follow the element's own radius. */
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+}
+
+/* ---------- Reusable surface treatments ---------- */
+
+.glass {
+  background: var(--c-glass);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid var(--c-line);
+}
+
+.glass-strong {
+  background: var(--c-glass-strong);
+  backdrop-filter: blur(24px) saturate(1.5);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  border: 1px solid var(--c-line);
+}
+
+.gradient-text {
+  background: linear-gradient(105deg, var(--c-accent) 10%, var(--c-violet) 50%, var(--c-cyan) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* A 1px animated gradient border using a padded background trick. */
+.gradient-border {
+  position: relative;
+  background:
+    linear-gradient(var(--c-surface), var(--c-surface)) padding-box,
+    linear-gradient(
+        130deg,
+        color-mix(in srgb, var(--c-accent) 55%, transparent),
+        color-mix(in srgb, var(--c-cyan) 35%, transparent),
+        var(--c-line)
+      )
+      border-box;
+  border: 1px solid transparent;
+}
+
+/* The ::after overlay is inset:0-absolute, so .noise itself must be the
+   containing block — without this, plain-div usages leak the texture over
+   the whole section. */
+.noise {
+  position: relative;
+}
+
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(var(--c-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, black 30%, transparent 75%);
+}
+
+.section-glow {
+  background:
+    radial-gradient(600px 320px at 20% 10%, var(--glow-1), transparent 70%),
+    radial-gradient(520px 300px at 85% 80%, var(--glow-2), transparent 70%);
+}
+
+/*
+ * Animated "data packet" sweeps for pipeline connectors.
+ * Paint-only (background-position) — never triggers layout, unlike
+ * animating top/left, which janks the whole page at 60fps.
+ */
+.flow-x,
+.flow-y {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+.flow-x {
+  background-image: linear-gradient(90deg, transparent, var(--c-cyan), transparent);
+  background-size: 45% 100%;
+  animation: flow-x 1.8s ease-in-out infinite;
+}
+.flow-y {
+  background-image: linear-gradient(180deg, transparent, var(--c-cyan), transparent);
+  background-size: 100% 55%;
+  animation: flow-y 1.6s ease-in-out infinite;
+}
+@keyframes flow-x {
+  0% {
+    background-position-x: -85%;
+  }
+  100% {
+    background-position-x: 185%;
+  }
+}
+@keyframes flow-y {
+  0% {
+    background-position-y: -125%;
+  }
+  100% {
+    background-position-y: 225%;
+  }
+}
+
+/* Hide scrollbars on horizontal scrollers while keeping them scrollable. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Certification flip cards. */
+.flip-card {
+  perspective: 1200px;
+}
+.flip-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.flip-card:hover .flip-inner,
+.flip-card:focus-within .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+/* Custom cursor: hide the native cursor only when the custom one is active. */
+html.custom-cursor-active,
+html.custom-cursor-active * {
+  cursor: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .flip-card:hover .flip-inner {
+    transition: none;
+  }
+}

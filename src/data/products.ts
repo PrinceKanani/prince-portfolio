@@ -1,0 +1,60 @@
+import type { ProductItem } from '../types'
+
+export const products: ProductItem[] = [
+  {
+    name: 'Asset Management System',
+    category: 'Enterprise SaaS',
+    problem: 'Untracked assets, manual registers and slow audits across locations.',
+    contribution: 'Product ownership, lifecycle design, and core module development.',
+    features: [
+      'Complete asset lifecycle',
+      'QR / barcode identification',
+      'Warranty, AMC & maintenance tracking',
+      'Depreciation & capitalization',
+      'Dashboards & email alerts',
+    ],
+    technologies: ['C#', '.NET', 'DevExpress XAF', 'SQL Server'],
+    status: 'In production',
+  },
+  {
+    name: 'Intallysense',
+    category: 'Cross-platform SaaS',
+    problem: 'Tally data trapped on the desktop — no real-time financial visibility for SMEs on the move.',
+    contribution: 'Product ownership: UX research, Play Store & App Store launches, continuous feature delivery.',
+    features: [
+      'Live Tally data on Web, iOS & Android',
+      'Master & transaction synchronization',
+      'XML / JSON payload transformation',
+      'Validation, error handling & sync monitoring',
+    ],
+    technologies: ['C#', '.NET', 'Tally ERP', 'XML', 'JSON', 'Mobile'],
+    status: 'Live on Play Store & App Store',
+  },
+  {
+    name: 'ERP Finance Module',
+    category: 'Enterprise SaaS',
+    problem: 'Enterprise ERP needs integrated accounting, ledgers and financial reporting.',
+    contribution: 'Designing and developing the module with AI-assisted development (Claude).',
+    features: ['Accounting & ledgers', 'Financial reporting', 'ERP integration'],
+    technologies: ['C#', '.NET', 'SQL Server', 'Claude'],
+    status: 'In progress',
+  },
+  {
+    name: 'CRM',
+    category: 'Business Application',
+    problem: 'Scattered customer data and untracked sales follow-ups.',
+    contribution: 'Requirements, feature planning and integration touchpoints.',
+    features: ['Customer management', 'Activity tracking', 'ERP integration'],
+    technologies: ['C#', '.NET', 'SQL Server'],
+    status: 'In production',
+  },
+  {
+    name: 'HRMS',
+    category: 'Business Application',
+    problem: 'Manual HR processes for employee records and workflows.',
+    contribution: 'Analysis and feature coordination.',
+    features: ['Employee management', 'HR workflows', 'Reporting'],
+    technologies: ['C#', '.NET', 'SQL Server'],
+    status: 'In production',
+  },
+]
