@@ -20,16 +20,13 @@ export const siteConfig = {
   tagline:
     'Building products, managing projects, solving technical problems, and turning business requirements into shipped software — fast, with AI-assisted development.',
 
-  /**
-   * Public contact email (confirmed by the owner).
-   * NOTE: the resume PDF still prints "gmali.com" — fix it there too.
-   */
+  /** Public contact email (confirmed by the owner). */
   // `||` (not `??`) so an env var injected as an empty string — e.g. an unset
   // repository variable in CI — still falls back to the default.
   email: (env.VITE_CONTACT_EMAIL as string | undefined) || 'princekanani4@gmail.com',
 
   /** GitHub username only (not the full URL). */
-  githubUsername: (env.VITE_GITHUB_USERNAME as string | undefined) || 'PrinceKanani03',
+  githubUsername: (env.VITE_GITHUB_USERNAME as string | undefined) || 'PrinceKanani',
 
   /** Full LinkedIn profile URL. */
   linkedinUrl:

@@ -11,7 +11,6 @@ import { Achievements } from './Achievements'
 import { Education } from './Education'
 import { Certifications } from './Certifications'
 import { Products } from './Products'
-import { GitHubSection } from './GitHubSection'
 import { LinkedInSection } from './LinkedInSection'
 import { ResumeSection } from './ResumeSection'
 import { Contact } from './Contact'
@@ -53,7 +52,8 @@ export default function BelowTheFold() {
       <Education />
       <Certifications />
       <Products />
-      <GitHubSection />
+      {/* GitHubSection intentionally removed (owner request) — re-add here and
+          in sectionOrder once the account has public repositories to show. */}
       <LinkedInSection />
       <ResumeSection />
       <Contact />

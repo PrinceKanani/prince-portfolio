@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://princekanani03.github.io/prince-portfolio/sitemap.xml
+Sitemap: https://princekanani.github.io/prince-portfolio/sitemap.xml

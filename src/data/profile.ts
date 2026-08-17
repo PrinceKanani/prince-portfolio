@@ -18,13 +18,18 @@ export const aboutIntro = {
 
 /**
  * Animated counters shown in the About section.
- * Set `value` to a real number to display a stat — stats without a value are
- * hidden automatically so no invented metrics ever ship.
- * Example: { label: 'Projects Delivered', value: 12, suffix: '+' }
+ * Every value below is derived from verified data elsewhere on this site
+ * (projects.ts, products.ts, certifications.ts, skills.ts) — update them
+ * together. Stats without a value are hidden automatically.
  */
 export const stats: Stat[] = [
-  { label: 'Projects Delivered', value: undefined, suffix: '+' },
-  { label: 'Products Worked On', value: undefined, suffix: '+' },
-  { label: 'Years of Experience', value: undefined, suffix: '+' },
-  { label: 'Technologies Used', value: undefined, suffix: '+' },
+  // Delivered: Asset Management, Intallysense, QR/Barcode, Ticketing,
+  // Cloth Sale Online, Minda implementation (ERP Finance still in progress).
+  { label: 'Projects Delivered', value: 6, suffix: '+' },
+  // Asset Management, Intallysense, ERP Finance Module, CRM, HRMS.
+  { label: 'Products Worked On', value: 5, suffix: '' },
+  // 5 verified (4 Anthropic + Unstop) + 4 completed training programs.
+  { label: 'Certifications & Trainings', value: 9, suffix: '' },
+  // Distinct technologies across the skills/projects data files.
+  { label: 'Technologies Used', value: 20, suffix: '+' },
 ]

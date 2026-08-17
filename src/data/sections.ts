@@ -20,7 +20,6 @@ export const sectionOrder = [
   'education',
   'certifications',
   'products',
-  'github',
   'linkedin',
   'resume',
   'contact',
