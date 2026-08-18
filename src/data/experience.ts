@@ -28,7 +28,8 @@ export const experience: ExperienceItem[] = [
   {
     company: 'Honest IT',
     role: 'Support Executive',
-    duration: 'Apr 2025 – Present',
+    // Ended when the Assistant PM role began (confirmed by the owner).
+    duration: 'Apr 2025 – Jan 2026',
     location: 'Ahmedabad, Gujarat, India',
     summary:
       'Worked the Minda enterprise client project end-to-end — project implementation, on-site testing, UAT coordination and go-live — while delivering prompt support to enterprise clients.',
