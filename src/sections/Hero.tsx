@@ -101,7 +101,7 @@ export function Hero() {
       {/* Slow tech ticker along the hero's base (hidden on short/small screens). */}
       <motion.div
         aria-hidden="true"
-        className="marquee absolute inset-x-0 bottom-16 hidden md:block"
+        className="marquee absolute inset-x-0 bottom-24 hidden md:block"
         initial={reduced ? undefined : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
