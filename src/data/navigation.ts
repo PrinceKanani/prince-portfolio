@@ -3,14 +3,13 @@ export interface NavItem {
   label: string
 }
 
+// Deliberately short (recruiter-critical stops only) — every other section is
+// reachable by scrolling and via the footer links.
 export const navItems: NavItem[] = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
-  { id: 'achievements', label: 'Achievements' },
-  { id: 'education', label: 'Education' },
   { id: 'certifications', label: 'Certifications' },
   { id: 'contact', label: 'Contact' },
 ]

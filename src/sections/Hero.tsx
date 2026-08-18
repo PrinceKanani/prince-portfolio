@@ -5,6 +5,19 @@ import { siteConfig, publicAsset } from '../config/siteConfig'
 import { configuredSocialLinks } from '../data/social'
 import { MagneticButton } from '../components/ui/MagneticButton'
 
+const TICKER = [
+  'Product Management',
+  'AI-Assisted Development',
+  'Claude',
+  'Tally ERP',
+  '.NET',
+  'React',
+  'SQL Server',
+  'SaaS',
+  'QR / Barcode',
+  'Agile',
+]
+
 export function Hero() {
   const reduced = useReducedMotion()
 
@@ -30,11 +43,14 @@ export function Hero() {
             {siteConfig.company} · {siteConfig.location.split(',')[0]}
           </motion.p>
 
+          <motion.p {...stagger(1)} className="font-display text-sm font-semibold tracking-[0.35em] text-muted uppercase">
+            Hi, I&apos;m
+          </motion.p>
           <motion.h1
             {...stagger(1)}
-            className="font-display text-4xl leading-[1.08] font-bold tracking-tight text-ink sm:text-6xl md:text-7xl"
+            className="mt-1 font-display text-5xl leading-[0.98] font-bold tracking-tight sm:text-7xl md:text-8xl"
           >
-            Hi, I&apos;m <span className="gradient-text">{siteConfig.name}</span>
+            <span className="gradient-text">{siteConfig.name}</span>
           </motion.h1>
 
           <motion.p {...stagger(2)} className="mt-5 font-display text-lg font-medium text-ink/90 sm:text-2xl">
@@ -81,6 +97,27 @@ export function Hero() {
           )}
         </div>
       </div>
+
+      {/* Slow tech ticker along the hero's base (hidden on short/small screens). */}
+      <motion.div
+        aria-hidden="true"
+        className="marquee absolute inset-x-0 bottom-16 hidden md:block"
+        initial={reduced ? undefined : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+      >
+        <div className="marquee-track">
+          {[...TICKER, ...TICKER].map((item, i) => (
+            <span
+              key={`${item}-${i}`}
+              className="flex items-center gap-3.5 font-display text-xs font-semibold tracking-[0.25em] whitespace-nowrap text-faint uppercase"
+            >
+              {item}
+              <span className="h-1 w-1 rounded-full bg-accent/50" />
+            </span>
+          ))}
+        </div>
+      </motion.div>
 
       <motion.a
         href="#about"
