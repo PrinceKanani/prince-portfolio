@@ -3,14 +3,11 @@ import { sectionOrder } from '../data/sections'
 import { AssetShowcase } from './AssetShowcase'
 import { TallyShowcase } from './TallyShowcase'
 import { QRShowcase } from './QRShowcase'
-import { Automation } from './Automation'
 import { ProductThinking } from './ProductThinking'
-import { Agile } from './Agile'
 import { Architecture } from './Architecture'
 import { Achievements } from './Achievements'
 import { Education } from './Education'
 import { Certifications } from './Certifications'
-import { Products } from './Products'
 import { LinkedInSection } from './LinkedInSection'
 import { ResumeSection } from './ResumeSection'
 import { Contact } from './Contact'
@@ -44,16 +41,16 @@ export default function BelowTheFold() {
       <AssetShowcase />
       <TallyShowcase />
       <QRShowcase />
-      <Automation />
+      {/* Trimmed on owner request: Automation (content covered by the Tally
+          showcase + skills), Agile (merged into ProductThinking), Products
+          (overlapped the Projects grid), and GitHubSection (empty account).
+          Their files remain in src/sections for easy re-adding — restore the
+          import + element here and the id in sectionOrder. */}
       <ProductThinking />
-      <Agile />
       <Architecture />
       <Achievements />
       <Education />
       <Certifications />
-      <Products />
-      {/* GitHubSection intentionally removed (owner request) — re-add here and
-          in sectionOrder once the account has public repositories to show. */}
       <LinkedInSection />
       <ResumeSection />
       <Contact />

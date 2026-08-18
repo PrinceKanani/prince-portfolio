@@ -12,6 +12,5 @@ export const navItems: NavItem[] = [
   { id: 'achievements', label: 'Achievements' },
   { id: 'education', label: 'Education' },
   { id: 'certifications', label: 'Certifications' },
-  { id: 'products', label: 'Products' },
   { id: 'contact', label: 'Contact' },
 ]
